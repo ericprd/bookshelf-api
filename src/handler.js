@@ -55,7 +55,7 @@ const addBookHandler = (request, h) => {
     if (isSuccess) {
         const response = h.response({
             status: 'success',
-            message: 'Berhasil menambahkan buku',
+            message: 'Buku berhasil ditambahkan',
             data: {
                 bookId: id,
             },
@@ -105,7 +105,6 @@ const getBookByIdHandler = (request, h) => {
     const { bookId } = request.params;
 
     const book = books.filter((b) => b.id === bookId)[0];
-    Number(book.year);
     if (book !== undefined) {
         return {
             status: 'success',
@@ -116,7 +115,7 @@ const getBookByIdHandler = (request, h) => {
     }
     const response = h.response({
         status: 'fail',
-        message: 'Buku tidak ditemukan.',
+        message: 'Buku tidak ditemukan',
     });
     response.code(404);
     return response;
@@ -168,14 +167,14 @@ const editBookByIdHandler = (request, h) => {
         };
         const response = h.response({
             status: 'success',
-            message: 'Buku berhasil diperbarui.',
+            message: 'Buku berhasil diperbarui',
         });
         response.code(200);
         return response;
     };
     const response = h.response({
         status: 'fail',
-        message: 'Buku gagal diperbaharui, Id tidak ditemukan',
+        message: 'Gagal memperbarui buku. Id tidak ditemukan',
     });
     response.code(404);
     return response;
